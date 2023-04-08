@@ -1,5 +1,8 @@
 
 <style>
+  .card{
+    margin: 0 auto;
+  }
   .card-body {
     display: flex;
     flex-direction: column;
@@ -35,7 +38,7 @@
       <div class="row" style="gap:1.2rem;">
         {% for livro in page.object_list %}
 
-        <div class="col-md">
+        <div class="col-md col-sm-12">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               {% if livro.img %}
