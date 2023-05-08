@@ -36,14 +36,14 @@ def valida_cadastro(request):
 
     if len(usuario) > 0:
         return redirect('/auth/cadastro/?status=3')
-
     try:
         senha = sha256(senha.encode()).hexdigest()
-        usuario = Usuario(nome=nome,
-                          senha=senha,
-                          email=email,
-                          telefone = telefone,
-                          )
+        usuario = Usuario(
+            nome=nome,
+            senha=senha,
+            email=email,
+            telefone = telefone,
+                                        )
         if turma:
             usuario.turma = Turma.objects.get(id=turma)
         usuario.save()

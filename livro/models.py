@@ -17,7 +17,7 @@ class Livros(models.Model):
    nome = models.CharField(max_length=80, editable= True)
    autor = models.CharField(max_length=30)
    co_autor = models.CharField(max_length=30, blank=True, null=True)
-   data_cadastro = models.DateField(default=date.today)
+   data_cadastro = models.DateField(default=date.today, null=True)
    categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
    esta_emprestado = models.BooleanField(editable=False, default=False)
    quantidade = models.PositiveIntegerField(default=1)  
