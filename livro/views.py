@@ -4,12 +4,14 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator
 
 
+
+
 @csrf_exempt
 def home(request):
     if request.session.get('usuario'):
         txt_name = request.GET.get('nome')
         livros = Livros.objects.filter(nome__icontains=txt_name or '')
-        livros_paginator = Paginator(livros, 10)
+        livros_paginator = Paginator(livros, 15)
         page_num = request.GET.get('page')
         page = livros_paginator.get_page(page_num)
 
@@ -38,3 +40,6 @@ def excluir_livro(request, livro_id):
         return redirect('lista_livros')
 
     return render(request, 'excluir_livro.html', {'livro': livro, 'is_borrowed': is_borrowed})
+
+
+
