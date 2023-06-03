@@ -80,11 +80,13 @@
 
         <label name="turma">Turma:</label>
         <div class="dropdown">
-          <select name="turma" id="turma" class="btn btn-light">
+            {%if turmas %} 
+            <select name="turma" id="turma" class="btn btn-light">
             {%for turma in turmas %}
             <option class="dropdown-item" value="{{turma.id}}" href="#">{{turma.nome}}</option>
             {%endfor%}
           </select>
+            {%endif%}
         </div>
       </div>
 
